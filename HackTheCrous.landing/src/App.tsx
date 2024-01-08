@@ -11,8 +11,8 @@ function App() {
       <header className='flex-row flex justify-between px-5 py-3'>
         <img src={logo} alt='logo' width={58} height={50} />
         <span className='flex-row flex py-2 px-5'>
-          <Button text="S'inscrire" type='primary' to='/register' />
-          <Button style='ml-4' text="Se connecter" type='secondary' to='/login' />
+          <Button text="S'inscrire" type='primary' to='https://hack-the-crous-96y4.vercel.app/register' />
+          <Button style='ml-4' text="Se connecter" type='secondary' to='https://hack-the-crous-96y4.vercel.app/login' />
         </span>
       </header>
       <section id="hero" className='flex flex-col w-full justify-center items-center h-[75vh]'>
@@ -22,14 +22,13 @@ function App() {
           Ton <span className='text-accent'>intranet</span> <br/>étudiant <span className='text-accent'>réinventé</span>
         </h2>
         <p className='text-primary font-neutral font-medium text-2xl mt-4 w-1/2 text-center'>Trouve ton <u>emploi du temps</u>, les <u>menus</u> du crous, tes <u>salles de cours</u> sur la même plateforme.</p>
-        <Button style='mt-8 text-3xl' text='Rejoindre Hack The Crous' type='primary' to='/register' />
+        <Button style='mt-8 text-3xl' text='Rejoindre Hack The Crous' type='primary' to='https://hack-the-crous-96y4.vercel.app/register' />
       </section>^^
       <section className='w-full flex flex-col items-center justify-center'>
         <Preview image={preview_image} />
       </section>
       <footer className='flex flex-row items-center justify-center w-full pt-24 pb-10'>
-        <a className='text-primary opacity-75 hover:opacity-100 font-clean mx-3' href=''>Guide</a>
-        <a className='text-primary opacity-75 hover:opacity-100 font-clean mx-3' href=''>Guide</a>
+        <p className='text-primary opacity-75 hover:opacity-100 font-clean mx-3'>All right reserved - Hack The Crous 2024</p>
       </footer>
     </>
   )
