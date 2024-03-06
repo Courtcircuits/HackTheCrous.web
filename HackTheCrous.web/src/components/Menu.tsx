@@ -1,14 +1,14 @@
 import CalendarIcon from "../assets/icons/Calendar";
 import HomeIcon from "../assets/icons/Home";
 import ShopIcon from "../assets/icons/Shop";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Menu() {
   return (
     <nav className="flex flex-col col-span-3 rounded-lg px-5 bg-tint200 py-4 h-fit">
       <ul>
-        <MenuSection icon={<HomeIcon />} text="Home" to="/" active />
-        <MenuSection icon={<ShopIcon />} text="Shop" to="/shop" />
+        <MenuSection icon={<HomeIcon />} text="Home" to="/" />
+        <MenuSection icon={<ShopIcon />} text="Restaurant" to="/restaurant" />
         <MenuSection icon={<CalendarIcon />} text="Calendar" to="/calendar" />
       </ul>
     </nav>
@@ -19,13 +19,13 @@ function MenuSection({
   icon,
   text,
   to,
-  active,
 }: {
   icon: JSX.Element;
   text: string;
   to: string;
-  active?: boolean;
 }) {
+  const location = useLocation();
+  const active = "/" + location.pathname.split("/")[1] === to;
   return (
     <li>
       <Link

@@ -44,12 +44,16 @@ export default function SearchBar() {
         />
         <p className="text-offwhite">Ctrl+k</p>
       </div>
-      {focused && <FloatingSearchBar key="modal" />}
+      {focused && <FloatingSearchBar key="modal" setFocused={setFocused} />}
     </AnimatePresence>
   );
 }
 
-function FloatingSearchBar() {
+function FloatingSearchBar({
+  setFocused,
+}: {
+  setFocused: (focused: boolean) => void;
+}) {
   const [value, setValue] = useState<string>("");
   const { data, error } = useSearchRestaurant(value, 300);
   return (
@@ -75,7 +79,11 @@ function FloatingSearchBar() {
         </span>
         {data ? (
           data.length > 0 ? (
-            <SearchResultsContainer results={data} query={value} />
+            <SearchResultsContainer
+              results={data}
+              query={value}
+              setFocused={setFocused}
+            />
           ) : null
         ) : error ? (
           <p>Something went wrong</p>
@@ -88,9 +96,11 @@ function FloatingSearchBar() {
 function SearchResultsContainer({
   results,
   query,
+  setFocused,
 }: {
   results: Restaurant[];
   query: string;
+  setFocused: (focused: boolean) => void;
 }) {
   return (
     <div className="overflow-y-scroll max-h-[80%]">
@@ -125,7 +135,13 @@ function SearchResultsContainer({
               key={restaurant.id}
               className="text-tint900 py-4 pb-6 border-b-[0.5px] border-b-offwhite last:border-b-0 hover:text-primary"
             >
-              <Link to={`/restaurant/${restaurant.id}`} className="text-3xl ">
+              <Link
+                to={`/restaurant/${restaurant.id}`}
+                className="text-3xl"
+                onClick={() => {
+                  setFocused(false);
+                }}
+              >
                 {left}
                 <span className="text-primary">{matching}</span>
                 {right}

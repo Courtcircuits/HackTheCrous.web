@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: hackthecrous-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hackthecrous-front
+  template:
+    metadata:
+      labels:
+        app: hackthecrous-front
+    spec:
+      containers:
+      - name: hackthecrous-front
+        image: {{ .Values.image.repository }}-front:{{ .Values.image.tag }}
+        ports:
+        - containerPort: {{ .Values.frontend.port }}

@@ -57,17 +57,17 @@ export default function RestaurantList() {
         ))}
       </div>
       <div className="col-span-4">
-        {restaurants
-          ?.filter((_, index) => index % 2 == 0)
-          .map((restaurant) => (
-            <AnimatePresence initial={false}>
+        <AnimatePresence initial={false}>
+          {restaurants
+            ?.filter((_, index) => index % 2 == 0)
+            .map((restaurant) => (
               <RestaurantCard
                 key={restaurant.id}
                 id={restaurant.id}
                 name={restaurant.name}
               />
-            </AnimatePresence>
-          ))}
+            ))}
+        </AnimatePresence>
       </div>
       <div className="col-span-4">
         {restaurants
