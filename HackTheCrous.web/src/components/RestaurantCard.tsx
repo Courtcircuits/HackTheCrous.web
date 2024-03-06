@@ -7,9 +7,11 @@ import { motion } from "framer-motion";
 export default function RestaurantCard({
   id,
   name,
+  url,
 }: {
   id: number;
   name: string;
+  url: string;
 }) {
   const { data: meals, error } = useRestaurantMeals(id);
   if (error) {
@@ -32,7 +34,9 @@ export default function RestaurantCard({
     >
       <span className="flex flex-row justify-between items-center">
         <h3 className="font-bold text-3xl">{name}</h3>
-        <LinkIcon />
+        <a href={url} target="_blank" rel="noreferrer">
+          <LinkIcon />
+        </a>
       </span>
       <section className="max-h-52 overflow-hidden">
         {meals.length > 0 ? (

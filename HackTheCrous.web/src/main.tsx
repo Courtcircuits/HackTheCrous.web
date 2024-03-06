@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import RestaurantPage from "./pages/RestaurantPage.tsx";
 import RestaurantList from "./pages/RestaurantList.tsx";
+import WorkInProgress from "./components/WorkInProgress.tsx";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<App />}>
             <Route path="/" element={<RestaurantList />} />
             <Route path="/restaurant/:id" element={<RestaurantPage />} />
-            <Route path="*" element={<h1>Not Found</h1>} />
+            <Route path="*" element={<WorkInProgress />} />
           </Route>
         </Routes>
       </BrowserRouter>
