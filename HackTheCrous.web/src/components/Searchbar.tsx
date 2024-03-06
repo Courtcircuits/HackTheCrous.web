@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SearchIcon from "../assets/icons/Search";
 import { useSearchRestaurant } from "../queries/restaurant.queries";
@@ -33,10 +33,10 @@ export default function SearchBar() {
 
   return (
     <AnimatePresence>
-      <div className="h-20 bg-bgOff col-span-8 flex flex-row items-center justify-center rounded-lg px-5 border-tint200 border-2">
+      <div className="h-20 bg-bgOff col-span-12 sm:col-span-8 flex flex-row items-center justify-center rounded-lg px-5 border-tint200 border-2">
         <SearchIcon />
         <input
-          className="flex-grow bg-transparent outline-none mx-2 text-tint900 font-clean"
+          className="flex-grow overflow-hidden bg-transparent outline-none mx-2 text-tint900 font-clean"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onFocus={() => setFocused(true)}
@@ -56,6 +56,13 @@ function FloatingSearchBar({
 }) {
   const [value, setValue] = useState<string>("");
   const { data, error } = useSearchRestaurant(value, 300);
+  const mainElt = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [setFocused]);
   return (
     <motion.div
       key="modal"
@@ -64,13 +71,19 @@ function FloatingSearchBar({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15, ease: "easeInOut" }}
+      onClick={(e) => {
+        if (mainElt.current && !mainElt.current.contains(e.target as Node)) {
+          setFocused(false);
+        }
+      }
+    }
     >
-      <div className=" bg-tint100 col-span-8 rounded-lg px-5 w-1/2 border-offwhite border-2 max-h-[90%]">
+      <div ref={mainElt} className=" bg-tint100 col-span-8 rounded-lg px-5 w-[90%] sm:w-1/2 border-offwhite border-2 max-h-full sm:max-h-[90%]">
         <span className="flex flex-row items-center justify-center py-4">
           <SearchIcon />
           <input
             autoFocus
-            className="flex-grow bg-transparent outline-none mx-2 text-tint900 font-clean"
+            className="flex-grow bg-transparent outline-none mx-2 text-tint900 font-clean overflow-hidden"
             value={value}
             onChange={(e) => setValue(e.target.value)}
             placeholder="Recherche un plat, un restaurant..."
