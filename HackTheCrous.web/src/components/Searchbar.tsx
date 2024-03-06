@@ -75,10 +75,12 @@ function FloatingSearchBar({
         if (mainElt.current && !mainElt.current.contains(e.target as Node)) {
           setFocused(false);
         }
-      }
-    }
+      }}
     >
-      <div ref={mainElt} className=" bg-tint100 col-span-8 rounded-lg px-5 w-[90%] sm:w-1/2 border-offwhite border-2 max-h-full sm:max-h-[90%]">
+      <div
+        ref={mainElt}
+        className=" bg-tint100 col-span-8 rounded-lg px-5 w-[90%] sm:w-1/2 border-offwhite border-2 max-h-full sm:max-h-[90%]"
+      >
         <span className="flex flex-row items-center justify-center py-4">
           <SearchIcon />
           <input
@@ -149,7 +151,7 @@ function SearchResultsContainer({
               className="text-tint900 py-4 pb-6 border-b-[0.5px] border-b-offwhite last:border-b-0 hover:text-primary"
             >
               <Link
-                to={`/restaurant/${restaurant.id}`}
+                to={`/restaurant/${restaurant.id}?q=${query}`}
                 className="text-3xl"
                 onClick={() => {
                   setFocused(false);

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useRestaurant } from "../queries/restaurant.queries";
 import { Meal } from "../types";
 
@@ -32,6 +32,7 @@ export default function RestaurantPage() {
 }
 
 function RestaurantMenu({ meal }: { meal: Meal }) {
+  const [searchParams] = useSearchParams();
   return (
     <>
       <h3 className="font-clean font-semibold text-4xl mt-5 mb-3">
@@ -43,14 +44,38 @@ function RestaurantMenu({ meal }: { meal: Meal }) {
             {item.type}
           </h4>
           <ul>
-            {item.content.map((food) => (
-              <li
-                className="text-tint900 decoration-tint900 font-clean text-md"
-                key={food}
-              >
-                {food}
-              </li>
-            ))}
+            {item.content.map((food) => {
+              const substringMatchingQuery = food
+                .toUpperCase()
+                .indexOf(searchParams.get("q")?.toUpperCase() || "");
+              let left = "";
+              let matching = "";
+              let right = "";
+
+              if (substringMatchingQuery !== -1) {
+                left = food.slice(0, substringMatchingQuery);
+                matching = food.slice(
+                  substringMatchingQuery,
+                  substringMatchingQuery + (searchParams.get("q")?.length || 0)
+                );
+                right = food.slice(
+                  substringMatchingQuery + (searchParams.get("q")?.length || 0)
+                );
+              } else {
+                left = food;
+              }
+
+              return (
+                <li
+                  className="text-tint900 decoration-tint900 font-clean text-md"
+                  key={food}
+                >
+                  {left}
+                  <span className="text-primary">{matching}</span>
+                  {right}
+                </li>
+              );
+            })}
           </ul>
           <hr className="text-offwhite my-5 w-1/3" />
         </span>

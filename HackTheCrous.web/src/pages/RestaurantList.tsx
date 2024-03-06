@@ -62,6 +62,7 @@ export default function RestaurantList() {
             ?.filter((_, index) => index % 2 == 0)
             .map((restaurant) => (
               <RestaurantCard
+                url={restaurant.url}
                 key={restaurant.id}
                 id={restaurant.id}
                 name={restaurant.name}
@@ -74,6 +75,7 @@ export default function RestaurantList() {
           ?.filter((_, index) => index % 2 == 1)
           .map((restaurant) => (
             <RestaurantCard
+              url={restaurant.url}
               key={restaurant.id}
               id={restaurant.id}
               name={restaurant.name}
