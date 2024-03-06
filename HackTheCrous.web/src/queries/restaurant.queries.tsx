@@ -133,6 +133,7 @@ export const useRestaurant = (id: number): UseRestaurant => {
         id: metadata.id,
         name: metadata.name,
         meals: meals,
+        url: metadata.url,
       });
     }
   }, [metadata, meals]);
