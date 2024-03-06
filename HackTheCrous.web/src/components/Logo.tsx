@@ -4,7 +4,7 @@ export default function Logo() {
   return (
     <Link
       to="/"
-      className="flex flex-row bg-gradient-to-r from-limeGreen to-primary px-5 h-20 rounded-lg items-center col-span-2 justify-center"
+      className="hidden sm:flex flex-row bg-gradient-to-r from-limeGreen to-primary px-5 h-20 rounded-lg items-center col-span-2 justify-center"
     >
       <div className="rounded-full bg-tint0 w-12 h-12 mr-4"></div>
       <div className="flex flex-col">

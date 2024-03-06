@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Menu() {
   return (
-    <nav className="flex flex-col col-span-3 rounded-lg px-5 bg-tint200 py-4 h-fit">
+    <nav className="hidden sm:flex flex-col col-span-3 rounded-lg px-5 bg-tint200 py-4 h-fit">
       <ul>
         <MenuSection icon={<HomeIcon />} text="Home" to="/" />
         <MenuSection icon={<ShopIcon />} text="Restaurant" to="/restaurant" />

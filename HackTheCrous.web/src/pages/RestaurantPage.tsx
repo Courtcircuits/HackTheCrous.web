@@ -14,9 +14,9 @@ export default function RestaurantPage() {
 
   return (
     <div className="col-span-8">
-      <span className="flex flex-row items-center">
-        <div className="bg-gradient-to-r from-limeGreen to-primary rounded-full w-10 h-10 mt-4"></div>
-        <h2 className="text-tint900 text-8xl font-extrabold ml-5">
+      <span className="flex flex-row-reverse sm:flex-row items-center">
+        <div className="hidden sm:block bg-gradient-to-r from-limeGreen to-primary rounded-full w-10 h-10 mt-4"></div>
+        <h2 className="text-tint900 text-6xl font-extrabold sm:ml-5">
           {restaurant.name}
         </h2>
       </span>
