@@ -1,6 +1,7 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import { useRestaurant } from "../queries/restaurant.queries";
 import { Meal } from "../types";
+import { motion } from "framer-motion";
 
 export default function RestaurantPage() {
   const { id } = useParams<{ id: string }>();
@@ -13,7 +14,13 @@ export default function RestaurantPage() {
   }
 
   return (
-    <div className="col-span-8">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+      className="col-span-8"
+    >
       <span className="flex flex-row-reverse sm:flex-row items-center">
         <div className="hidden sm:block bg-gradient-to-r from-limeGreen to-primary rounded-full w-10 h-10 mt-4"></div>
         <h2 className="text-tint900 text-6xl font-extrabold sm:ml-5">
@@ -27,7 +34,7 @@ export default function RestaurantPage() {
       ) : (
         <p>No meals available</p>
       )}
-    </div>
+    </motion.div>
   );
 }
 
@@ -39,11 +46,11 @@ function RestaurantMenu({ meal }: { meal: Meal }) {
         {meal.Type}
       </h3>
       {meal.Foodies.map((item, index) => (
-        <span key={index}>
-          <h4 className="text-tint900 font-clean text-2xl uppercase my-2">
+        <span key={index} className="group">
+          <h4 className="text-tint900 font-clean text-2xl uppercase my-2 font-bold">
             {item.type}
           </h4>
-          <ul>
+          <ul className="pl-5 border-l-2 border-fadedwhite mb-5 group-hover:border-tint900 ease-linear duration-75">
             {item.content.map((food) => {
               const substringMatchingQuery = food
                 .toUpperCase()
@@ -77,7 +84,7 @@ function RestaurantMenu({ meal }: { meal: Meal }) {
               );
             })}
           </ul>
-          <hr className="text-offwhite my-5 w-1/3" />
+          {/* <hr className="text-offwhite my-5 w-1/3" /> */}
         </span>
       ))}
     </>

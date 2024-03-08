@@ -15,8 +15,7 @@ export default function Tag({ label, selected, setSelected }: TagProps) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
         onClick={() => setSelected(false)}
-        className="bg-primary rounded-full px-3 py-1 text-tint0 text-sm flex flex-row items-center justify-center first:ml-0 ml-2 border-2 border-primary"
-      >
+        className="bg-primary rounded-full px-3 py-1 text-tint0 text-sm flex flex-row items-center justify-center first:ml-0 ml-2 border-2 border-primary cursor-pointer">
         {label}
         <span className="ml-2">
           <CloseTagIcon />
@@ -31,7 +30,7 @@ export default function Tag({ label, selected, setSelected }: TagProps) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
       onClick={() => setSelected(true)}
-      className="bg-slightwhite rounded-full px-3 py-1 text-sm text-tint900 border-2 border-tint900 first:ml-0 ml-2 opacity-50 hover:opacity-100 transition duration-300 ease-in-out"
+      className="bg-slightwhite rounded-full px-3 py-1 text-sm text-tint900 border-2 border-tint900 first:ml-0 ml-2 opacity-50 hover:opacity-100 transition duration-300 ease-in-out cursor-pointer"
     >
       {label}
     </motion.div>

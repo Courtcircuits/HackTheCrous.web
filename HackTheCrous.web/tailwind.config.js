@@ -14,6 +14,7 @@ export default {
       tint900: "white",
       primary: "#1CEE71",
       offwhite: "rgba(255, 255, 255, 0.5)",
+      fadedwhite: "rgba(255, 255, 255, 0.2)",
       slightwhite: "rgba(255, 255, 255, 0.1)",
       transparent: "transparent",
     },
