@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Menu() {
   return (
-    <nav className="hidden sm:flex flex-col col-span-3 rounded-lg px-5 bg-tint200 py-4 h-fit">
+    <nav className="hidden sm:flex flex-col col-span-3 sm:col-span-2 rounded-lg px-2 bg-tint200 py-4 h-fit">
       <ul>
         <MenuSection icon={<HomeIcon />} text="Home" to="/" />
         <MenuSection icon={<ShopIcon />} text="Restaurant" to="/restaurant" />
@@ -35,7 +35,7 @@ function MenuSection({
         }`}
       >
         <div className="p-3">{icon}</div>
-        <p className="font-clean">{text}</p>
+        <p className="font-clean hidden md:flex">{text}</p>
       </Link>
     </li>
   );

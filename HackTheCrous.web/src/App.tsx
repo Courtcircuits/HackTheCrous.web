@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Logo from "./components/Logo";
 import Menu from "./components/Menu";
 import SearchBar from "./components/Searchbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
           </p>
         </div>
         <Menu />
-        <div className="grid grid-cols-8 gap-4 col-span-12 sm:col-span-8">
+        <div className="grid grid-cols-8 gap-4 col-span-12 sm:col-span-8 md:col-span-8">
           <Outlet />
         </div>
       </div>
+      <Footer />
     </>
   );
 }
