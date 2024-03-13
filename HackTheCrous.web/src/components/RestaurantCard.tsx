@@ -38,7 +38,7 @@ export default function RestaurantCard({
           <LinkIcon />
         </a>
       </span>
-      <section className="max-h-52 overflow-hidden">
+      <section className="max-h-52 overflow-hidden text-fade">
         {meals.length > 0 ? (
           meals.map((meal) => <RestaurantMenu key={meal.ID} meal={meal} />)
         ) : (
