@@ -21,7 +21,7 @@ export default function RestaurantList() {
 
   useEffect(() => {
     const fitlerRestaurants = (
-      data: Restaurant[] | undefined
+      data: Restaurant[] | undefined,
     ): Restaurant[] => {
       if (!data) return [];
       if (selectedFilters.length === 0) {

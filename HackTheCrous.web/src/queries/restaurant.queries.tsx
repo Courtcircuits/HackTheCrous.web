@@ -15,7 +15,7 @@ const fetchRestaurantMeals = async ({
       headers: {
         "Content-Type": "application/json",
       },
-    }
+    },
   );
 
   const data = await response.json();
@@ -35,7 +35,7 @@ const fetchRestaurantMetadata = async ({
       headers: {
         "Content-Type": "application/json",
       },
-    }
+    },
   );
 
   const data = await response.json();
@@ -51,7 +51,7 @@ const fetchRestaurants = async (): Promise<Restaurant[]> => {
       headers: {
         "Content-Type": "application/json",
       },
-    }
+    },
   );
 
   const data = await response.json();
@@ -70,7 +70,7 @@ const fetchSearchRestaurant = async (search: string): Promise<Restaurant[]> => {
       headers: {
         "Content-Type": "application/json",
       },
-    }
+    },
   );
 
   const data = await response.json();
@@ -89,13 +89,13 @@ export const useRestaurants = () => {
 };
 
 export const useRestaurantMeals = (id: number) => {
-  const { data, error } = useQuery({
+  const { data, error, isLoading } = useQuery({
     queryKey: ["restaurant_meal", id],
     queryFn: () => fetchRestaurantMeals({ id }),
     staleTime: 0,
     cacheTime: 5 * 60 * 1000,
   });
-  return { data, error };
+  return { data, error, isLoading };
 };
 
 export const useSearchRestaurant = (search: string, debounce?: number) => {

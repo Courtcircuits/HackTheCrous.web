@@ -13,13 +13,54 @@ export default function RestaurantCard({
   name: string;
   url: string;
 }) {
-  const { data: meals, error } = useRestaurantMeals(id);
+  const { data: meals, error, isLoading } = useRestaurantMeals(id);
   if (error) {
     return <p>Something went wrong</p>;
   }
+  if (isLoading) {
+    return (
+      <motion.div
+        key={id}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-fit mb-4"
+      >
+        <span className="flex flex-row justify-between items-center">
+          <h3 className="font-bold text-3xl">{name}</h3>
+          <a href={url} target="_blank" rel="noreferrer">
+            <LinkIcon />
+          </a>
+        </span>
+
+        <section className="max-h-52 overflow-hidden text-fade">
+          <p>Loading...</p>
+        </section>
+      </motion.div>
+    );
+  }
+
   if (!meals) {
     return (
-      <div className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-[100px] mb-4"></div>
+      <motion.div
+        key={id}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-fit mb-4"
+      >
+        <span className="flex flex-row justify-between items-center">
+          <h3 className="font-bold text-3xl">{name}</h3>
+          <a href={url} target="_blank" rel="noreferrer">
+            <LinkIcon />
+          </a>
+        </span>
+        <section className="max-h-52 overflow-hidden">
+          <p className="font-bold pb-2">:( Pas de menu indiqué par le CROUS</p>
+        </section>
+      </motion.div>
     );
   }
 
