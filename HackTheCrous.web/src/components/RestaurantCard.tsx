@@ -3,15 +3,18 @@ import LinkIcon from "../assets/icons/LinkIcon";
 import { useRestaurantMeals } from "../queries/restaurant.queries";
 import { Meal } from "../types";
 import { motion } from "framer-motion";
+import OpenningHourIndicator from "./OpenningHourIndicator";
 
 export default function RestaurantCard({
   id,
   name,
   url,
+  hours,
 }: {
   id: number;
   name: string;
   url: string;
+  hours: string;
 }) {
   const { data: meals, error, isLoading } = useRestaurantMeals(id);
   if (error) {
@@ -33,7 +36,6 @@ export default function RestaurantCard({
             <LinkIcon />
           </a>
         </span>
-
         <section className="max-h-52 overflow-hidden text-fade">
           <p>Loading...</p>
         </section>
@@ -57,6 +59,7 @@ export default function RestaurantCard({
             <LinkIcon />
           </a>
         </span>
+        <OpenningHourIndicator hours={hours} />
         <section className="max-h-52 overflow-hidden">
           <p className="font-bold pb-2">:( Pas de menu indiqué par le CROUS</p>
         </section>
@@ -79,6 +82,7 @@ export default function RestaurantCard({
           <LinkIcon />
         </a>
       </span>
+      <OpenningHourIndicator hours={hours} />
       <section className="max-h-52 overflow-hidden text-fade">
         {meals.length > 0 ? (
           meals.map((meal) => <RestaurantMenu key={meal.ID} meal={meal} />)

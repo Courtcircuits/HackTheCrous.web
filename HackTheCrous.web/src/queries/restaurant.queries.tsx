@@ -134,6 +134,7 @@ export const useRestaurant = (id: number): UseRestaurant => {
         name: metadata.name,
         meals: meals,
         url: metadata.url,
+        hours: metadata.hours,
       });
     }
   }, [metadata, meals]);

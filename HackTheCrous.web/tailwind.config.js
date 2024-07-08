@@ -13,6 +13,8 @@ export default {
       bgOff: "rgba(30,30,30,0.27)",
       tint900: "white",
       primary: "#1CEE71",
+      warn: "#ff0000",
+      orange: "#FFA500",
       offwhite: "rgba(255, 255, 255, 0.5)",
       fadedwhite: "rgba(255, 255, 255, 0.2)",
       slightwhite: "rgba(255, 255, 255, 0.1)",
@@ -27,7 +29,11 @@ export default {
       lg: "22px",
       full: "9999px",
     },
-    extend: {},
+    extend: {
+      borderWidth: {
+        xs: "1px",
+      },
+    },
   },
   plugins: [],
 };

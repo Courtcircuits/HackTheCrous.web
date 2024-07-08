@@ -2,6 +2,7 @@ export interface Restaurant {
   id: number;
   name: string;
   url: string;
+  hours: string;
   meals: Meal[];
 }
 

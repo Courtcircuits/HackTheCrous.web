@@ -66,6 +66,7 @@ export default function RestaurantList() {
                 key={restaurant.id}
                 id={restaurant.id}
                 name={restaurant.name}
+                hours={restaurant.hours}
               />
             ))}
         </AnimatePresence>
@@ -79,6 +80,7 @@ export default function RestaurantList() {
               key={restaurant.id}
               id={restaurant.id}
               name={restaurant.name}
+              hours={restaurant.hours}
             />
           ))}
       </div>
