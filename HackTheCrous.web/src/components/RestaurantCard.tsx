@@ -1,20 +1,23 @@
 import { Link } from "react-router-dom";
 import LinkIcon from "../assets/icons/LinkIcon";
 import { useRestaurantMeals } from "../queries/restaurant.queries";
-import { Meal } from "../types";
+import { Coordinates, Meal } from "../types";
 import { motion } from "framer-motion";
 import OpenningHourIndicator from "./OpenningHourIndicator";
+import DistanceIndicator from "./DistanceIndicator";
 
 export default function RestaurantCard({
   id,
   name,
   url,
   hours,
+  coordinates,
 }: {
   id: number;
   name: string;
   url: string;
   hours: string;
+  coordinates: Coordinates;
 }) {
   const { data: meals, error, isLoading } = useRestaurantMeals(id);
   if (error) {
@@ -59,7 +62,10 @@ export default function RestaurantCard({
             <LinkIcon />
           </a>
         </span>
-        <OpenningHourIndicator hours={hours} />
+        <span className="flex flex-row gap-2">
+          <OpenningHourIndicator hours={hours} />
+          <DistanceIndicator coordinates={coordinates} />
+        </span>
         <section className="max-h-52 overflow-hidden">
           <p className="font-bold pb-2">:( Pas de menu indiqué par le CROUS</p>
         </section>
@@ -82,7 +88,10 @@ export default function RestaurantCard({
           <LinkIcon />
         </a>
       </span>
-      <OpenningHourIndicator hours={hours} />
+      <span className="flex flex-row gap-2">
+        <OpenningHourIndicator hours={hours} />
+        <DistanceIndicator coordinates={coordinates} />
+      </span>
       <section className="max-h-52 overflow-hidden text-fade">
         {meals.length > 0 ? (
           meals.map((meal) => <RestaurantMenu key={meal.ID} meal={meal} />)

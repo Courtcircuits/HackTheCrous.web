@@ -4,6 +4,12 @@ export interface Restaurant {
   url: string;
   hours: string;
   meals: Meal[];
+  gps_coord: Coordinates;
+}
+
+export interface Coordinates {
+  X: number;
+  Y: number;
 }
 
 export interface Meal {

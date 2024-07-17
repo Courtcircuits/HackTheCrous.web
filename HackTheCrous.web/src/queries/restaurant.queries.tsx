@@ -15,7 +15,7 @@ const fetchRestaurantMeals = async ({
       headers: {
         "Content-Type": "application/json",
       },
-    },
+    }
   );
 
   const data = await response.json();
@@ -35,7 +35,7 @@ const fetchRestaurantMetadata = async ({
       headers: {
         "Content-Type": "application/json",
       },
-    },
+    }
   );
 
   const data = await response.json();
@@ -51,7 +51,7 @@ const fetchRestaurants = async (): Promise<Restaurant[]> => {
       headers: {
         "Content-Type": "application/json",
       },
-    },
+    }
   );
 
   const data = await response.json();
@@ -70,7 +70,7 @@ const fetchSearchRestaurant = async (search: string): Promise<Restaurant[]> => {
       headers: {
         "Content-Type": "application/json",
       },
-    },
+    }
   );
 
   const data = await response.json();
@@ -135,6 +135,7 @@ export const useRestaurant = (id: number): UseRestaurant => {
         meals: meals,
         url: metadata.url,
         hours: metadata.hours,
+        gps_coord: metadata.gps_coord,
       });
     }
   }, [metadata, meals]);

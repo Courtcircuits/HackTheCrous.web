@@ -21,7 +21,7 @@ export default function RestaurantList() {
 
   useEffect(() => {
     const fitlerRestaurants = (
-      data: Restaurant[] | undefined,
+      data: Restaurant[] | undefined
     ): Restaurant[] => {
       if (!data) return [];
       if (selectedFilters.length === 0) {
@@ -67,6 +67,7 @@ export default function RestaurantList() {
                 id={restaurant.id}
                 name={restaurant.name}
                 hours={restaurant.hours}
+                coordinates={restaurant.gps_coord}
               />
             ))}
         </AnimatePresence>
@@ -81,6 +82,7 @@ export default function RestaurantList() {
               id={restaurant.id}
               name={restaurant.name}
               hours={restaurant.hours}
+              coordinates={restaurant.gps_coord}
             />
           ))}
       </div>
