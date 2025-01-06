@@ -50,11 +50,9 @@ jobs:
           token: "${{ secrets.DEPLOYMENT_TOKEN }}"
       - name: Update values.yaml
         run: |
-          sudo add-apt-repository ppa:rmescandon/yq
-          sudo apt update
-          sudo apt install yq -y
+          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O yq && chmod +x ./yq
           cd charts/frontend
-          yq eval -i '.image.tag = env(TAG)' tag.yaml
+          ../../yq eval -i '.image.tag = env(TAG)' tag.yaml
           git config --global user.name "CI deployment"
           git config --global user.email "ci.deployment.hackthecrous@users.noreply.github.com"
           git add tag.yaml
