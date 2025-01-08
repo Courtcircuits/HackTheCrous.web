@@ -85,7 +85,7 @@ export default function RestaurantCard({
       <OpenningHourIndicator hours={hours} />
       <section className="max-h-52 overflow-hidden text-fade">
         {meals.length > 0 ? (
-          meals.map((meal) => <RestaurantMenu key={meal.ID} meal={meal} />)
+          meals.map((meal) => <RestaurantMenu key={meal.id} meal={meal} />)
         ) : (
           <p>No meals available</p>
         )}
@@ -100,8 +100,8 @@ export default function RestaurantCard({
 function RestaurantMenu({ meal }: { meal: Meal }) {
   return (
     <>
-      <h4>{meal.Type}</h4>
-      {meal.Foodies.map((item, index) => (
+      <h4>{meal.type}</h4>
+      {meal.foodies.map((item, index) => (
         <span key={index}>
           <b className="text-tint900">{item.type}</b>
           <ul>

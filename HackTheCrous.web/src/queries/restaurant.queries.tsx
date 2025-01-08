@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { Meal, Restaurant } from "../types";
+import { APIData, Meal, Restaurant } from "../types";
 import useDebounce from "../hooks/debouncer";
 import { useEffect, useState } from "react";
 
@@ -9,7 +9,7 @@ const fetchRestaurantMeals = async ({
   id: number;
 }): Promise<Meal[]> => {
   const response = await fetch(
-    `${import.meta.env.VITE_API_ENDPOINT}/restaurants/meals/${id}`,
+    `${import.meta.env.VITE_API_ENDPOINT}/v2/restaurants/meals/${id}`,
     {
       method: "GET",
       headers: {
@@ -27,9 +27,9 @@ const fetchRestaurantMetadata = async ({
   id,
 }: {
   id: number;
-}): Promise<Restaurant> => {
+}): Promise<APIData<Restaurant>> => {
   const response = await fetch(
-    `${import.meta.env.VITE_API_ENDPOINT}/restaurants/${id}`,
+    `${import.meta.env.VITE_API_ENDPOINT}/v2/restaurants/${id}`,
     {
       method: "GET",
       headers: {
@@ -43,9 +43,9 @@ const fetchRestaurantMetadata = async ({
   return await data;
 };
 
-const fetchRestaurants = async (): Promise<Restaurant[]> => {
+const fetchRestaurants = async (): Promise<APIData<Restaurant[]>> => {
   const response = await fetch(
-    `${import.meta.env.VITE_API_ENDPOINT}/restaurants`,
+    `${import.meta.env.VITE_API_ENDPOINT}/v2/restaurants`,
     {
       method: "GET",
       headers: {
@@ -129,12 +129,16 @@ export const useRestaurant = (id: number): UseRestaurant => {
 
   useEffect(() => {
     if (metadata && meals) {
+      const data = metadata.data
       setRestaurant({
-        id: metadata.id,
-        name: metadata.name,
-        meals: meals,
-        url: metadata.url,
-        hours: metadata.hours,
+        id: data.id,
+        type: "restaurant",
+        attributes: {
+          name: data.attributes.name,
+          meals: meals,
+          url: data.attributes.url,
+          hours: data.attributes.hours,
+        }
       });
     }
   }, [metadata, meals]);

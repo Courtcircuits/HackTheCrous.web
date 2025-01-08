@@ -30,12 +30,12 @@ export default function RestaurantList() {
       return data?.filter((restaurant) => {
         let contains = false;
         for (let i = 0; i < selectedFilters.length; i++) {
-          contains = contains || restaurant.name.includes(selectedFilters[i]);
+          contains = contains || restaurant.attributes.name.includes(selectedFilters[i]);
         }
         return contains;
       });
     };
-    setRestaurants(fitlerRestaurants(data));
+    setRestaurants(fitlerRestaurants(data?.data));
   }, [data, restaurants, selectedFilters]);
 
   if (error) {
@@ -62,11 +62,11 @@ export default function RestaurantList() {
             ?.filter((_, index) => index % 2 == 0)
             .map((restaurant) => (
               <RestaurantCard
-                url={restaurant.url}
+                url={restaurant.attributes.url}
                 key={restaurant.id}
                 id={restaurant.id}
-                name={restaurant.name}
-                hours={restaurant.hours}
+                name={restaurant.attributes.name}
+                hours={restaurant.attributes.hours}
               />
             ))}
         </AnimatePresence>
@@ -76,11 +76,11 @@ export default function RestaurantList() {
           ?.filter((_, index) => index % 2 == 1)
           .map((restaurant) => (
             <RestaurantCard
-              url={restaurant.url}
+              url={restaurant.attributes.url}
               key={restaurant.id}
               id={restaurant.id}
-              name={restaurant.name}
-              hours={restaurant.hours}
+              name={restaurant.attributes.name}
+              hours={restaurant.attributes.hours}
             />
           ))}
       </div>

@@ -24,12 +24,12 @@ export default function RestaurantPage() {
       <span className="flex flex-row-reverse sm:flex-row items-center">
         <div className="hidden sm:block bg-gradient-to-r from-limeGreen to-primary rounded-full w-10 h-10 mt-4"></div>
         <h2 className="text-tint900 text-6xl font-extrabold sm:ml-5">
-          {restaurant.name}
+          {restaurant.attributes.name}
         </h2>
       </span>
-      {restaurant.meals.length > 0 ? (
-        restaurant.meals.map((meal) => (
-          <RestaurantMenu key={meal.ID} meal={meal} />
+      {restaurant.attributes.meals.length > 0 ? (
+        restaurant.attributes.meals.map((meal) => (
+          <RestaurantMenu key={meal.id} meal={meal} />
         ))
       ) : (
         <p>No meals available</p>
@@ -43,9 +43,9 @@ function RestaurantMenu({ meal }: { meal: Meal }) {
   return (
     <>
       <h3 className="font-clean font-semibold text-4xl mt-5 mb-3">
-        {meal.Type}
+        {meal.type}
       </h3>
-      {meal.Foodies.map((item, index) => (
+      {meal.foodies.map((item, index) => (
         <span key={index} className="group">
           <h4 className="text-tint900 font-clean text-2xl uppercase my-2 font-bold">
             {item.type}
