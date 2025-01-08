@@ -125,7 +125,7 @@ function SearchResultsContainer({
       </h3>
       <ul className="pb-3 ">
         {results.map((restaurant) => {
-          const substringMatchingQuery = restaurant.name
+          const substringMatchingQuery = restaurant.attributes.name
             .toUpperCase()
             .indexOf(query.toUpperCase());
 
@@ -133,16 +133,16 @@ function SearchResultsContainer({
           let matching = "";
           let right = "";
           if (substringMatchingQuery !== -1) {
-            left = restaurant.name.slice(0, substringMatchingQuery);
-            matching = restaurant.name.slice(
+            left = restaurant.attributes.name.slice(0, substringMatchingQuery);
+            matching = restaurant.attributes.name.slice(
               substringMatchingQuery,
               substringMatchingQuery + query.length
             );
-            right = restaurant.name.slice(
+            right = restaurant.attributes.name.slice(
               substringMatchingQuery + query.length
             );
           } else {
-            left = restaurant.name;
+            left = restaurant.attributes.name;
           }
 
           return (
