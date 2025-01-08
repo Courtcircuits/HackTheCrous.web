@@ -59,12 +59,14 @@ const fetchRestaurants = async (): Promise<APIData<Restaurant[]>> => {
   return await data;
 };
 
-const fetchSearchRestaurant = async (search: string): Promise<Restaurant[]> => {
+const fetchSearchRestaurant = async (search: string): Promise<APIData<Restaurant[]>> => {
   if (search.length < 3) {
-    return [];
+    return {
+      data: []
+    }
   }
   const response = await fetch(
-    `${import.meta.env.VITE_API_ENDPOINT}/search?q=${search}`,
+    `${import.meta.env.VITE_API_ENDPOINT}/v2/restaurants/search?q=${search}`,
     {
       method: "GET",
       headers: {
@@ -105,7 +107,7 @@ export const useSearchRestaurant = (search: string, debounce?: number) => {
     queryKey: ["search", debouncedValue],
     queryFn: () => fetchSearchRestaurant(debouncedValue),
   });
-  return { data, error };
+  return { data: data?.data, error };
 };
 
 export const useRestaurantMetadata = (id: number) => {
