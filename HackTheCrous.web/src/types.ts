@@ -24,3 +24,9 @@ export interface Menu {
 export interface APIData<T> {
   data: T
 }
+
+export interface School {
+  school_name: string;
+  school_full_name: string;
+  distance_km: number;
+}

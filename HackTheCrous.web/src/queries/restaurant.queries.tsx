@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { APIData, Meal, Restaurant } from "../types";
+import { APIData, Meal, Restaurant, School } from "../types";
 import useDebounce from "../hooks/debouncer";
 import { useEffect, useState } from "react";
 
@@ -10,6 +10,26 @@ const fetchRestaurantMeals = async ({
 }): Promise<Meal[]> => {
   const response = await fetch(
     `${import.meta.env.VITE_API_ENDPOINT}/v2/restaurants/meals/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  );
+
+  const data = await response.json();
+
+  return await data;
+};
+
+const fetchSchoolsForRestaurant = async ({
+  id,
+}: {
+  id: number;
+}): Promise<School[]> => {
+  const response = await fetch(
+    `${import.meta.env.VITE_API_ENDPOINT}/v2/restaurants/schools/${id}`,
     {
       method: "GET",
       headers: {
@@ -150,4 +170,12 @@ export const useRestaurant = (id: number): UseRestaurant => {
     metadataError,
     mealsError,
   };
+};
+
+export const useSchoolsForRestaurant = (id: number) => {
+  const { data, error } = useQuery({
+    queryKey: ["schools", id],
+    queryFn: () => fetchSchoolsForRestaurant({ id }),
+  });
+  return { data: data, error };
 };

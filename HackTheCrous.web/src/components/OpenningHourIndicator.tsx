@@ -22,7 +22,7 @@ export default function OpenningHourIndicator({ hours }: { hours: string }) {
     : "bg-warn";
 
   return (
-    <span className="rounded-full border-offwhite border-xs flex flex-row px-2 w-fit gap-2 items-center justify-center my-2">
+    <span className="rounded-full border-offwhite border-xs flex flex-row px-2 w-fit gap-2 items-center justify-center h-fit">
       <div className={`w-2 h-2 rounded-full content-none ${colors}`}></div>
       <p className={`text-sm`}>{label}</p>
     </span>
