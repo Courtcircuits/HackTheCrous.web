@@ -15,15 +15,15 @@ export default function OpenningHourIndicator({ hours }: { hours: string }) {
   const label = parsedHours ? parsedHours.label : "fermé";
   const colors = parsedHours
     ? parsedHours.status === "CLOSED"
-      ? "bg-warn"
+      ? "warn"
       : parsedHours.status === "SOON"
-        ? "bg-orange"
-        : "bg-primary"
-    : "bg-warn";
+        ? "orange"
+        : "primary"
+    : "warn";
 
   return (
-    <span className="rounded-full border-offwhite border-xs flex flex-row px-2 w-fit gap-2 items-center justify-center h-fit">
-      <div className={`w-2 h-2 rounded-full content-none ${colors}`}></div>
+    <span className="rounded-full border-offwhite border-xs flex flex-row px-2 w-fit gap-2 items-center justify-center h-fit o overflow-hidden">
+      <div className={`w-2 h-2 rounded-full content-none bg-${colors} shadow-c-${colors}`}></div>
       <p className={`text-sm`}>{label}</p>
     </span>
   );

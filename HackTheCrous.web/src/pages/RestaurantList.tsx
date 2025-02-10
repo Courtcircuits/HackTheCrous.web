@@ -56,7 +56,7 @@ export default function RestaurantList() {
           />
         ))}
       </div>
-      <div className="col-span-12 sm:col-span-4">
+      <div className="col-span-12 md:col-span-4">
         <AnimatePresence initial={false}>
           {restaurants
             ?.filter((_, index) => index % 2 == 0)
@@ -71,7 +71,7 @@ export default function RestaurantList() {
             ))}
         </AnimatePresence>
       </div>
-      <div className="col-span-12 sm:col-span-4">
+      <div className="col-span-12 md:col-span-4">
         {restaurants
           ?.filter((_, index) => index % 2 == 1)
           .map((restaurant) => (

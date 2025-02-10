@@ -41,3 +41,19 @@ h6 {
   background: linear-gradient(180deg, rgba(30, 30, 30, 0) 20%, rgb(30, 30, 30) );
   pointer-events: none;
 }
+
+.shadow-c-primary {
+  box-shadow: 0 0 10px 0.25px #1CEE71;
+  background-color: #1CEE71;
+}
+
+
+.shadow-c-warn {
+  box-shadow: 0 0 10px 0.25px #ff0000;
+  background-color: #ff0000;
+}
+
+.shadow-c-orange {
+  box-shadow: 0 0 10px 0.25px #FFA500;
+  background-color: #FFA500;
+}

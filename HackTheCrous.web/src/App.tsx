@@ -11,7 +11,7 @@ function App() {
         <Logo />
         <SearchBar />
         <div className="hidden col-span-2 sm:flex rounded-lg px-5 justify-center items-center bg-tint200  h-20">
-          <p className="text-2xl text-center font-semibold ">
+          <p className="text-2xl text-center font-semibold truncate">
             idk what to put here
           </p>
         </div>
