@@ -50,7 +50,7 @@ export default function CroustyPage() {
 	useEffect(() => {
 		const token = localStorage.getItem("token");
 		if (token) {
-			if (token != "") {
+			if (token !== "") {
 				setEnabled(true);
 			} else {
 				setEnabled(false);
@@ -85,7 +85,7 @@ export default function CroustyPage() {
 
 	}
 
-	const filteredMessages = messages.filter((message) => message.role != "user" || message.role != "assistant")
+	const filteredMessages = messages.filter((message) => message.role !== "user" && message.role !== "assistant")
 	console.log(filteredMessages)
 
 

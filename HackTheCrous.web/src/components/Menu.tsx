@@ -1,5 +1,4 @@
 import { Bot } from "lucide-react";
-import CalendarIcon from "../assets/icons/Calendar";
 import HomeIcon from "../assets/icons/Home";
 import ShopIcon from "../assets/icons/Shop";
 import { Link, useLocation } from "react-router-dom";
