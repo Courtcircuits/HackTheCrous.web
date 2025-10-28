@@ -30,7 +30,7 @@ export default function RestaurantCard({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-fit mb-4"
+        className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-fit mb-4 w-full"
       >
         <span className="flex flex-row justify-between items-center">
           <h3 className="font-bold text-3xl">{name}</h3>
@@ -53,7 +53,7 @@ export default function RestaurantCard({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-fit mb-4"
+        className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-fit mb-4 w-full"
       >
         <span className="flex flex-row justify-between items-center">
           <h3 className="font-bold text-3xl">{name}</h3>
@@ -76,7 +76,7 @@ export default function RestaurantCard({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-fit mb-4"
+      className="rounded-lg px-5 py-4 bg-tint200 flex flex-col h-fit mb-4 w-full"
     >
       <span className="flex flex-row justify-between items-center">
         <h3 className="font-bold text-3xl">{name}</h3>

@@ -1,3 +1,4 @@
+import { Bot } from "lucide-react";
 import CalendarIcon from "../assets/icons/Calendar";
 import HomeIcon from "../assets/icons/Home";
 import ShopIcon from "../assets/icons/Shop";
@@ -9,7 +10,7 @@ export default function Menu() {
       <ul>
         <MenuSection icon={<HomeIcon />} text="Home" to="/" />
         <MenuSection icon={<ShopIcon />} text="Restaurant" to="/restaurant" />
-        <MenuSection icon={<CalendarIcon />} text="Calendar" to="/calendar" />
+        <MenuSection icon={<Bot width={44} height={44} color={"white"} strokeWidth={1.5} />} text="Crousty" to="/crousty" />
       </ul>
     </nav>
   );

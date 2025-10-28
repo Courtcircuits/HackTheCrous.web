@@ -10,16 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mistralai/mistralai": "^1.10.0",
+    "bcryptjs": "^3.0.2",
     "framer-motion": "^11.0.5",
     "google-map-react": "^2.2.1",
     "googleapis": "^133.0.0",
     "localforage": "^1.10.0",
+    "lucide-react": "^0.546.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^10.1.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.22.0",
-    "sort-by": "^1.2.0"
+    "react-use-websocket": "^4.13.0",
+    "sort-by": "^1.2.0",
+    "uuid": "^13.0.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",

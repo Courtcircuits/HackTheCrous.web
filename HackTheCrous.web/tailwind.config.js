@@ -7,6 +7,7 @@ export default {
       primary: "#1CEE71",
     },
     colors: {
+      white: "white",
       tint0: "rgb(12, 12, 12)",
       tint100: "#161616",
       tint200: "#1E1E1E",
@@ -27,6 +28,7 @@ export default {
     },
     borderRadius: {
       lg: "22px",
+      md: "10px",
       full: "9999px",
     },
     extend: {

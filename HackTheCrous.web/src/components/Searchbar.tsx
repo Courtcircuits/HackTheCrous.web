@@ -33,7 +33,7 @@ export default function SearchBar() {
 
   return (
     <AnimatePresence>
-      <div className="h-20 bg-bgOff col-span-12 sm:col-span-8 flex flex-row items-center justify-center rounded-lg px-5 border-tint200 border-2">
+      <div className="h-20 bg-bgOff col-span-12 sm:col-span-10 flex flex-row items-center justify-center rounded-lg px-5 border-tint200 border-2">
         <SearchIcon />
         <input
           className="flex-grow overflow-hidden bg-transparent outline-none mx-2 text-tint900 font-clean"
