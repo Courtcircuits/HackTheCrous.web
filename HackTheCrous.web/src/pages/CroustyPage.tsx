@@ -85,8 +85,6 @@ export default function CroustyPage() {
 
 	}
 
-	const filteredMessages = messages.filter((message) => message.role !== "user" && message.role !== "assistant")
-	console.log(filteredMessages)
 
 
 	return (
@@ -94,7 +92,7 @@ export default function CroustyPage() {
 			<div className="w-3/4 h-[50vw] flex flex-col justify-between items-left gap-4">
 				<div className="flex flex-col gap-2 overflow-y-scroll w-full" ref={messagesDiv}>
 					<AnimatePresence initial={false}>
-						{filteredMessages.map((message, index) => (
+						{messages.map((message, index) => (
 							<Message content={message} key={index} />
 						))}
 						{
