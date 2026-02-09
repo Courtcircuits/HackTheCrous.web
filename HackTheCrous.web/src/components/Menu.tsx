@@ -5,11 +5,11 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Menu() {
   return (
-    <nav className="hidden sm:flex flex-col col-span-3 sm:col-span-2 rounded-lg px-2 bg-tint200 py-4 h-fit">
-      <ul>
+    <nav className="hidden sm:flex flex-col col-span-3 sm:col-span-2 rounded-lg px-2 bg-tint200 py-3 gap-4 h-fit">
+      <ul className="flex  flex-col gap-2">
         <MenuSection icon={<HomeIcon />} text="Home" to="/" />
         <MenuSection icon={<ShopIcon />} text="Restaurant" to="/restaurant" />
-        <MenuSection icon={<Bot width={44} height={44} color={"white"} strokeWidth={1.5} />} text="Crousty" to="/crousty" />
+        <MenuSection icon={<Bot width={30} height={30} color={"white"} strokeWidth={1.5} />} text="Crousty" to="/crousty" />
       </ul>
     </nav>
   );
@@ -30,7 +30,7 @@ function MenuSection({
     <li>
       <Link
         to={to}
-        className={`flex flex-row hover:bg-tint0 transition-all duration-150 ease-linear items-center rounded-lg my-1 ${
+        className={`flex flex-row hover:bg-tint0 transition-all duration-150 ease-linear items-center rounded-lg ${
           active && "bg-tint0 "
         }`}
       >
