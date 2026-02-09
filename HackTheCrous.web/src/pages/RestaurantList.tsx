@@ -4,6 +4,7 @@ import { Restaurant } from "../types";
 import { AnimatePresence } from "framer-motion";
 import RestaurantCard from "../components/RestaurantCard";
 import Tag from "../components/Tag";
+import Callout from "../components/Callout";
 
 export default function RestaurantList() {
   const { data, error } = useRestaurants();
@@ -55,6 +56,7 @@ export default function RestaurantList() {
             }}
           />
         ))}
+		<Callout text="Je suis en train de cook la v5 de Hack The Crous, ça arrive fort l'équipe ᕙ(⇀‸↼‶)ᕗ"/>
       </div>
       <div className="col-span-12 sm:col-span-5 md:col-span-5">
         <AnimatePresence initial={false}>
