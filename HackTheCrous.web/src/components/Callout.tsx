@@ -1,4 +1,4 @@
-import { FileWarningIcon, Info } from "lucide-react"
+import { Info } from "lucide-react"
 
 interface CalloutProps {
 	text: string
